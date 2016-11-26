@@ -24,7 +24,7 @@ class AutosuggestTest extends fixture.FlatSpec with Matchers {
   }
 
   "Autosuggest" should "autosuggest perfect match at top" in { suggester =>
-    suggester.suggest("camarero", 10).head.text shouldBe "camarero"
+    suggester.suggest("camarero", 10).head shouldBe Suggestion("camarero", 10)
   }
 
   it should "return result sorted by weight" in { suggester =>
@@ -35,4 +35,3 @@ class AutosuggestTest extends fixture.FlatSpec with Matchers {
     suggester.suggest("camarero", 1).length shouldBe 1
   }
 }
-
